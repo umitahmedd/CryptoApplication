@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject private var viewModel: HomeViewModel
     @State private var showPortfolio: Bool = false
     var body: some View {
         ZStack {
@@ -20,6 +21,13 @@ struct HomeView: View {
                 // Header
                 homeHeader
 
+                List {
+                    ForEach(viewModel.allCoins) { coin in
+                        CoinRow(coin: coin, showHoldings: true)
+                    }
+                }
+                .listStyle(PlainListStyle())
+
                 Spacer()
             }
         }
@@ -28,6 +36,7 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(HomeViewModel())
 }
 
 extension HomeView {
@@ -55,8 +64,6 @@ extension HomeView {
                 )
                 .rotationEffect(Angle(degrees: showPortfolio ? 180 : 0))
             }
-
-            Spacer()
         }
     }
 }
