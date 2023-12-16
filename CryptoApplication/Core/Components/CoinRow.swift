@@ -13,23 +13,23 @@ struct CoinRow: View {
 
     var body: some View {
         HStack {
-            //
+            // Number
             Text("\(1)")
                 .font(.caption)
                 .foregroundStyle(Color.crp.accent)
-                .frame(minWidth: 20)
 
-            //
+            // Icon
             Circle()
                 .frame(width: 30, height: 30)
 
-            //
+            // Name
             Text(coin.symbol.uppercased())
                 .font(.headline)
                 .foregroundColor(Color.crp.accent)
 
             Spacer()
 
+            // Holding
             if showHoldings {
                 VStack(alignment: .trailing) {
                     Text(coin.currentHoldingsValue.asCurrencyWith6Decimals())
@@ -40,6 +40,7 @@ struct CoinRow: View {
                 }
             }
 
+            // Price
             VStack(alignment: .trailing) {
                 Text(coin.currentPrice.asCurrencyWith6Decimals())
                     .bold()
