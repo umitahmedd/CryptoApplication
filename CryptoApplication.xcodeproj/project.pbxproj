@@ -14,6 +14,8 @@
 		04467B7E2B2A371800DB0ABD /* CircleButtonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04467B7D2B2A371800DB0ABD /* CircleButtonAnimation.swift */; };
 		04467B842B2A390B00DB0ABD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04467B832B2A390B00DB0ABD /* HomeView.swift */; };
 		04467B872B2A530200DB0ABD /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04467B862B2A530200DB0ABD /* CoinModel.swift */; };
+		045CEB482B2DCCEC005D53ED /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045CEB472B2DCCEC005D53ED /* CoinDataService.swift */; };
+		045CEB4B2B2DD1A9005D53ED /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 045CEB4A2B2DD1A9005D53ED /* Alamofire */; };
 		04C286802B2CEC6B0050D9C3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C2867F2B2CEC6B0050D9C3 /* HomeViewModel.swift */; };
 		04C9967F2B29E37E005CDBB7 /* CryptoApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C9967E2B29E37E005CDBB7 /* CryptoApplicationApp.swift */; };
 		04C996812B29E37E005CDBB7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C996802B29E37E005CDBB7 /* ContentView.swift */; };
@@ -29,6 +31,7 @@
 		04467B7D2B2A371800DB0ABD /* CircleButtonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonAnimation.swift; sourceTree = "<group>"; };
 		04467B832B2A390B00DB0ABD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		04467B862B2A530200DB0ABD /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		045CEB472B2DCCEC005D53ED /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
 		04C2867F2B2CEC6B0050D9C3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		04C9967B2B29E37E005CDBB7 /* CryptoApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C9967E2B29E37E005CDBB7 /* CryptoApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApplicationApp.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045CEB4B2B2DD1A9005D53ED /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +121,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		045CEB462B2DCCBD005D53ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				045CEB472B2DCCEC005D53ED /* CoinDataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		04C996722B29E37E005CDBB7 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +152,7 @@
 				04C9967E2B29E37E005CDBB7 /* CryptoApplicationApp.swift */,
 				04C996802B29E37E005CDBB7 /* ContentView.swift */,
 				04467B762B2A2A6C00DB0ABD /* Extensions */,
+				045CEB462B2DCCBD005D53ED /* Services */,
 				04467B852B2A52DE00DB0ABD /* Models */,
 				04467B792B2A36DB00DB0ABD /* Core */,
 				04467B802B2A38DB00DB0ABD /* App */,
@@ -173,6 +186,9 @@
 			dependencies = (
 			);
 			name = CryptoApplication;
+			packageProductDependencies = (
+				045CEB4A2B2DD1A9005D53ED /* Alamofire */,
+			);
 			productName = CryptoApplication;
 			productReference = 04C9967B2B29E37E005CDBB7 /* CryptoApplication.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +217,9 @@
 				Base,
 			);
 			mainGroup = 04C996722B29E37E005CDBB7;
+			packageReferences = (
+				045CEB492B2DD1A9005D53ED /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 04C9967C2B29E37E005CDBB7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -229,6 +248,7 @@
 			files = (
 				04C996812B29E37E005CDBB7 /* ContentView.swift in Sources */,
 				04C9967F2B29E37E005CDBB7 /* CryptoApplicationApp.swift in Sources */,
+				045CEB482B2DCCEC005D53ED /* CoinDataService.swift in Sources */,
 				043679632B2BB6660074A87A /* Double.swift in Sources */,
 				04C286802B2CEC6B0050D9C3 /* HomeViewModel.swift in Sources */,
 				04467B7E2B2A371800DB0ABD /* CircleButtonAnimation.swift in Sources */,
@@ -452,6 +472,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		045CEB492B2DD1A9005D53ED /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		045CEB4A2B2DD1A9005D53ED /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 045CEB492B2DD1A9005D53ED /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04C996732B29E37E005CDBB7 /* Project object */;
 }

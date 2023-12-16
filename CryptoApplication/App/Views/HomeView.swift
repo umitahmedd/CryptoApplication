@@ -17,16 +17,54 @@ struct HomeView: View {
                 .ignoresSafeArea()
 
             // Content
-            VStack {
+            VStack(alignment: .leading, spacing: nil) {
                 // Header
                 homeHeader
 
+                HStack {
+                    Text("Coin")
+
+                    Spacer()
+
+                    if showPortfolio {
+                        Text("Holdigns")
+                            .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+
+                        Spacer()
+                    }
+
+                    Text("Pirce")
+                }
+                .foregroundStyle(Color.crp.secondaryText)
+                .font(.subheadline)
+                .padding(.horizontal, 10)
+
                 List {
-                    ForEach(viewModel.allCoins) { coin in
-                        CoinRow(coin: coin, showHoldings: true)
+                    if showPortfolio {
+                        ForEach(viewModel.allCoins) { coin in
+                            CoinRow(coin: coin, showHoldings: true)
+                                .listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
+                        }
+
+                        Text("Lorem ")
+
+                            .listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
+
+                        Text("Lorem ")
+                            .listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
+
+                        Text("Lorem ")
+                            .listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
+
+                    } else {
+                        ForEach(viewModel.portfolioCoins) { coin in
+                            CoinRow(coin: coin, showHoldings: false)
+                                .listRowInsets(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
+                        }
                     }
                 }
-                .listStyle(PlainListStyle())
+                .listStyle(.inset)
+                .transition(.move(edge: .bottom))
 
                 Spacer()
             }
